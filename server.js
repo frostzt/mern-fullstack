@@ -6,6 +6,9 @@ const app = express();
 // Connect Database
 connectDB();
 
+// Initialize middlewares
+app.use(express.json({ limit: '10kb' }));
+
 app.get('/', (req, res) => res.send('API running'));
 
 // Define routes
