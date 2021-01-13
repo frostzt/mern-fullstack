@@ -1,4 +1,5 @@
 const express = require('express');
+const morgan = require('morgan');
 const connectDB = require('./config/db');
 
 const app = express();
@@ -7,6 +8,7 @@ const app = express();
 connectDB();
 
 // Initialize middlewares
+app.use(morgan('dev'));
 app.use(express.json({ limit: '10kb' }));
 
 app.get('/', (req, res) => res.send('API running'));
