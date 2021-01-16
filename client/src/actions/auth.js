@@ -9,8 +9,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  CLEAR_PROFILE,
 } from './types';
-import { Redirect } from 'react-router-dom';
 
 // LOAD USER
 export const loadUser = () => async (dispatch) => {
@@ -93,5 +93,6 @@ export const login = (email, password) => async (dispatch) => {
 
 // LOGOUT AND ALSO CLEAR PROFILE
 export const logout = () => (dispatch) => {
+  dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
 };
